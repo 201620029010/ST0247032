@@ -11,28 +11,35 @@ import java.util.Collection;
 public class DigraphAL extends Graph
 {
    private int size;
-   private int matriz[][];
-   ArrayList <Integer> sucesores = new  ArrayList <Integer>(); 
+   ArrayList <Pareja> aux;
+      ArrayList <ArrayList <Pareja>> lista; 
    public DigraphAL(int size)
    {
        
-       this.size = size;
-       matriz = new int [this.size][this.size];
-       
+       super(size);
+       aux= new ArrayList <Pareja>();
+       lista = new  ArrayList <ArrayList <Pareja>>(); 
+     
      
    }
    
+   @Override
    public void addArc(int source, int destination, int weight)
-   {
-       matriz[source][destination] = weight;
+   { 
+      Pareja pareja = new Pareja(destination, weight); 
+      
+      
+       
            
    }
    
+   @Override
    public int getWeight(int source, int destination)
    {
       return matriz[source][destination];
    }
   
+   @Override
    public ArrayList<Integer> getSuccessors(int vertice)
    {
        for (int i = vertice; i < matriz.length; i++) {
