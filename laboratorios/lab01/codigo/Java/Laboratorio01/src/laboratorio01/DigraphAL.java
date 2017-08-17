@@ -12,13 +12,21 @@ public class DigraphAL extends Graph
 {
    private int size;
    ArrayList <Pareja> aux;
-      ArrayList <ArrayList <Pareja>> lista; 
+   ArrayList <ArrayList <Pareja>> lista; 
+   Pareja pareja;
+   private int tamano;
    public DigraphAL(int size)
    {
        
        super(size);
        aux= new ArrayList <Pareja>();
-       lista = new  ArrayList <ArrayList <Pareja>>(); 
+       lista = new ArrayList<ArrayList<Pareja>>();
+       for (int i = 0; i < size; i++) {
+           lista.add(aux);
+           
+            }
+        tamano = lista.size();
+      
      
      
    }
@@ -26,8 +34,8 @@ public class DigraphAL extends Graph
    @Override
    public void addArc(int source, int destination, int weight)
    { 
-      Pareja pareja = new Pareja(destination, weight); 
-      
+      pareja = new Pareja(destination, weight); 
+      lista.get(source).add(pareja);
       
        
            
@@ -36,7 +44,13 @@ public class DigraphAL extends Graph
    @Override
    public int getWeight(int source, int destination)
    {
-      return matriz[source][destination];
+       for (int i = 0; i < lista.get(source).size();i++) {
+           if( lista.get(source).get(i).vertice == destination) {
+              return lista.get(source).get(i).peso;
+           }
+           
+       }
+      return 0;
    }
   
    @Override

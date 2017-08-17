@@ -1,10 +1,4 @@
-
-/**
- * Clase Pareja para poder hacer una lista que tenga dos valores en sus nodos
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+package laboratorio01;
 public class Pareja
 {
     public int vertice;
