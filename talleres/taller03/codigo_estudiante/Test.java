@@ -1,3 +1,6 @@
+package Taller3;
+
+import Taller3.Taller3;
 import java.util.ArrayList;
 import java.util.Arrays;
 

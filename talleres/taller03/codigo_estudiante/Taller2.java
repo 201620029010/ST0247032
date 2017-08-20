@@ -1,3 +1,4 @@
+package Taller3;
 import java.util.ArrayList;
 
 /**
@@ -8,11 +9,17 @@ import java.util.ArrayList;
 public class Taller2 {
 
 	public static boolean sumaGrupo(int start, int[] nums, int target) {
-		// complete...
+            if(target == 0){
+                return true;
+            } else if (start > nums.length){
+                return false;
+            }else {
+                return sumaGrupo(start+1,nums,target-nums[start])||sumaGrupo(start+1,nums,target);
+            }
 	}
 
 	public static ArrayList<String> combinations(String s) {
-		// complete...
+		return null;
 	}
 
 	// recomendacion
@@ -21,7 +28,7 @@ public class Taller2 {
 	}
 
 	public static ArrayList<String> permutations(String s) {
-		// complete...
+		return null;
 	}
 
 	// recomendacion
@@ -45,11 +52,11 @@ public class Taller2 {
 	}
 
 	public static boolean esValido(int[] tablero) {
-		// complete...
+		return false;
 	}
 
 	public static int queens(int n) {
-		// complete...
+		return 0;
 	}
 
 }
