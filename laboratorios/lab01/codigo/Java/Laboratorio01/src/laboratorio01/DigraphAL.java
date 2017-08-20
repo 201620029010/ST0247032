@@ -24,7 +24,7 @@ public class DigraphAL extends Graph {
         aux = new ArrayList<Pareja>();
         lista = new ArrayList<ArrayList<Pareja>>();
         for (int i = 0; i < size; i++) {
-            lista.add(aux);
+            lista.add(new ArrayList<Pareja>());
 
         }
         tamano = lista.size();
@@ -34,8 +34,7 @@ public class DigraphAL extends Graph {
 
     @Override
     public void addArc(int source, int destination, int weight) {
-        pareja = new Pareja(destination, weight);
-        lista.get(source).add(pareja);
+        lista.get(source).add(new Pareja(destination, weight));
 
     }
 
@@ -54,11 +53,11 @@ public class DigraphAL extends Graph {
     public ArrayList<Integer> getSuccessors(int vertice) {
         ArrayList<Integer> sucesores = new ArrayList<>();
 
-        for (int i = vertice; i < lista.size(); i++) {
+        for (int i = 0; i < lista.get(vertice).size(); i++) {
             
-                for (int j = 0; j < lista.get(i).size(); j++) {
-                    sucesores.add(lista.get(i).get(j).vertice);
-                }
+               
+                    sucesores.add(lista.get(vertice).get(i).vertice);
+                
           
 
         }
@@ -68,19 +67,15 @@ public class DigraphAL extends Graph {
 
     public static void main(String[] args) {
         System.out.println("hola");
-        DigraphAL grafo = new DigraphAL(3);
+        DigraphAL grafo = new DigraphAL(5);
 
         grafo.addArc(1, 2, 5);
+        grafo.addArc(1, 3, 1);        
+        grafo.addArc(2, 4, 5);
 
-        grafo.addArc(1, 3, 1);
-        
-        grafo.addArc(2, 2, 5);
 
-        ArrayList<Integer> grafos = grafo.getSuccessors(2);
-
-        for (int i = 0; i < grafos.size(); i++) {
-            System.out.println(grafos.get(i));
-
+        for (Integer i : grafo.getSuccessors(1)) {
+            System.out.println(i);
         }
 
        
