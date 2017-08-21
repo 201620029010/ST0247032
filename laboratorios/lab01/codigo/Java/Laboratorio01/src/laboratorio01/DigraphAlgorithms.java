@@ -1,3 +1,4 @@
+package laboratorio01;
 import java.util.ArrayList;
 import java.util.Arrays;
 /**
@@ -75,6 +76,31 @@ public class DigraphAlgorithms
         }
         System.out.println("}");
      }
+     /** Devuelve el nodo con más sucesores
+      @param grafo 
+      * @return el nodo de donde vienen más sucesores
+      **/
+     public static int sucesoresOP(Graph grafo) {
+         int mayor = 0;
+         int from = 0;
+         System.out.println(grafo.size);
+         
+         for (int i = 0; i < grafo.size(); i++) {
+            
+             if(grafo.getSuccessors(i).size() > mayor) {
+                 System.out.println(grafo.getSuccessors(i));
+              mayor = grafo.getSuccessors(i).size();
+              
+              from = i;
+             }
+             
+             
+         }
+         
+         return from;
+         
+         
+     }
  
  
  public static void main(String[] args)
@@ -82,30 +108,32 @@ public class DigraphAlgorithms
      DigraphAL dgal = new DigraphAL(5);
      dgal.addArc(0,1,10);
      dgal.addArc(0,2,3);
-     dgal.addArc(1,2,1);
-     dgal.addArc(1,3,2);
+    
+     dgal.addArc(1,5,1);
      dgal.addArc(2,1,4);
-     dgal.addArc(2,3,8);
-     dgal.addArc(2,4,2);
+     
+   
      dgal.addArc(3,4,7);
      dgal.addArc(4,3,9);
      
-     System.out.println(getPath(dijsktra(dgal,0),0,3));
+//    System.out.println(getPath(dijsktra(dgal,0),0,3));
      
      DigraphAM dgam = new DigraphAM(5);
      dgam.addArc(0,1,10);
-     dgam.addArc(0,2,3);
      dgam.addArc(1,2,1);
      dgam.addArc(1,3,2);
      dgam.addArc(2,1,4);
      dgam.addArc(2,3,8);
-     dgam.addArc(2,4,2);
      dgam.addArc(3,4,7);
      dgam.addArc(4,3,9);
      
-     System.out.println(getPath(dijsktra(dgam,0),0,3)); 
+    // System.out.println(getPath(dijsktra(dgam,0),0,3)); 
 
-     DigraphAlgorithms.dibujarGrafo(dgal);
+     //DigraphAlgorithms.dibujarGrafo(dgal);
+     
+     System.out.println(sucesoresOP(dgam));
+     
+     
      
  }
 }

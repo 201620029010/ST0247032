@@ -31,13 +31,22 @@ public class DigraphAL extends Graph {
         tamaux = aux.size();
 
     }
-
+ /**
+  * Add an arc into the Graph
+  * @param source
+  * @param destination 
+  * @param weight 
+  **/
     @Override
     public void addArc(int source, int destination, int weight) {
         lista.get(source).add(new Pareja(destination, weight));
 
     }
-
+/** It gets the weight 
+ * @param source 
+ * @param destination 
+ * @return Weight
+ **/
     @Override
     public int getWeight(int source, int destination) {
         for (int i = 0; i < lista.get(source).size(); i++) {
@@ -48,7 +57,11 @@ public class DigraphAL extends Graph {
         }
         return 0;
     }
-
+  
+    /** gets a list with the successors 
+     * @param vertice 
+     * @return A List with successors
+     **/
     @Override
     public ArrayList<Integer> getSuccessors(int vertice) {
         ArrayList<Integer> sucesores = new ArrayList<>();
@@ -66,7 +79,7 @@ public class DigraphAL extends Graph {
     }
 
     public static void main(String[] args) {
-        System.out.println("hola");
+       
         DigraphAL grafo = new DigraphAL(5);
 
         grafo.addArc(1, 2, 5);
@@ -74,7 +87,7 @@ public class DigraphAL extends Graph {
         grafo.addArc(2, 4, 5);
 
 
-        for (Integer i : grafo.getSuccessors(1)) {
+        for (Integer i : grafo.getSuccessors(4)) {
             System.out.println(i);
         }
 
