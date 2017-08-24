@@ -25,12 +25,21 @@ public class DigraphAM extends Graph
         return matriz[source][destination];
     }
    
+    /**
+  * Add an arc into the Graph
+  * @param source
+  * @param destination 
+  * @param weight 
+  **/
    @Override
    public void addArc(int source, int destination, int weight)
    {
          matriz[source][destination] = weight;
    }
-  
+   /** gets a list with the successors 
+     * @param vertice 
+     * @return A List with successors
+     **/
    @Override
    public ArrayList<Integer> getSuccessors(int vertice)
    {
