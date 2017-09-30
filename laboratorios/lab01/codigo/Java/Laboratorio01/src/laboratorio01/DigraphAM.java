@@ -48,9 +48,9 @@ public class DigraphAM extends Graph
               if(matriz[i][j]!=0) {
                   sucesores.add(j);
               }
-               
+             
            }
-           
+           break;
        }
        return sucesores;
    }
@@ -63,6 +63,16 @@ public class DigraphAM extends Graph
             System.out.println();
         }  
     }
+    
+    public void bfs(int vertice) {
+      ArrayList  <Integer> grafos =  new  ArrayList<Integer>();
+      boolean visitado[] = new boolean [matriz.length];
+     
+            
+            
+        
+    
+    }
      public static void main(String[] args) {
         DigraphAM grafo = new DigraphAM(5);
         
@@ -70,10 +80,11 @@ public class DigraphAM extends Graph
         grafo.addArc(1, 3, 1);
         grafo.addArc(2, 3, 5);
         grafo.addArc(2, 4, 6);
+        grafo.addArc(1, 4, 5);
         grafo.imprimir();
          
        
-       ArrayList  <Integer> grafos = grafo.getSuccessors(2);
+       ArrayList  <Integer> grafos = grafo.getSuccessors(1);
        
        
         

@@ -1,7 +1,7 @@
 package laboratorio01;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.io.*;
+import java.util.*;
 
 /**
  * Esta clase es una implementación de un digrafo usando listas de adyacencia
@@ -77,19 +77,48 @@ public class DigraphAL extends Graph {
         return sucesores;
 
     }
+    public void bfs (int s) {
+         boolean visited[] = new boolean[tamano];
+          LinkedList<Integer> queue = new LinkedList<Integer>();
+           visited[s]=true;
+           queue.add(s);
+            while (queue.size() != 0)
+        {
+            // Dequeue a vertex from queue and print it
+            s = queue.poll();
+            System.out.print(s+" ");
+ 
+            // Get all adjacent vertices of the dequeued vertex s
+            // If a adjacent has not been visited, then mark it
+            // visited and enqueue it
+            
+            ListIterator <Pareja> i = lista.get(s).listIterator();
+            while (i.hasNext())
+            {
+                int n =  i.next().vertice;
+                if (!visited[n])
+                {
+                    visited[n] = true;
+                    queue.add(n);
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) {
        
         DigraphAL grafo = new DigraphAL(5);
 
+        grafo.addArc(0, 1, 5);
+        grafo.addArc(0, 2, 1);        
         grafo.addArc(1, 2, 5);
-        grafo.addArc(1, 3, 1);        
-        grafo.addArc(2, 4, 5);
-
-
-        for (Integer i : grafo.getSuccessors(4)) {
+        grafo.addArc(2, 0, 5);
+        grafo.addArc(2, 3, 5);
+        grafo.addArc(3, 3, 5);
+        grafo.bfs(2);
+     /**   for (Integer i : grafo.getSuccessors(4)) {
             System.out.println(i);
-        }
+        }**/
 
        
     }
