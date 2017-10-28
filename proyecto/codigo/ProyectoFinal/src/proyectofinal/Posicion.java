@@ -14,8 +14,8 @@ package proyectofinal;
  */
 public class Posicion
 {
-    public float posX;
-    public float posY;
+    private float posX;
+    private float posY;
     public Posicion(float y,float x) {posX = x;  posY = y;}
 
     public float getPosX() {

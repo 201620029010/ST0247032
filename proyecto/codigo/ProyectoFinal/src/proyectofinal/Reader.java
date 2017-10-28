@@ -14,17 +14,20 @@ import java.util.Map;
  * @author Yeshúa
  */
 public class Reader {
-
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-
+    
+    /**
+     * @return retorna un hash map con los nodos y las coordenadas
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
+    public static HashMap read() throws FileNotFoundException, IOException{
         BufferedReader br = null;
         FileReader fr = new FileReader("medellin_colombia-grande.txt");
-        
         br = new BufferedReader(fr);
         String str = "";
 
         ArrayList<Integer> keys = new ArrayList<Integer>();
-        HashMap<Integer, Posicion> hmap = new HashMap<Integer, Posicion>();
+        HashMap<Integer, Posicion> nodos = new HashMap<Integer, Posicion>();
         int id = 0;
         float posY = 0, posX = 0;
 
@@ -45,18 +48,17 @@ public class Reader {
             if (cont == 2) {
                 posX = Float.parseFloat(token.nextToken());
             }
-            
-            Posicion latLon = new Posicion (posY, posX);
-            
+
+            Posicion latLon = new Posicion(posY, posX);
+
             keys.add(id);
-            
-            hmap.put(id, latLon);
+            nodos.put(id, latLon);
         }
-        
-        for (int i = 0; i < hmap.size(); i++) {
-            System.out.println(hmap.get(keys.get(i)).getPosY()+" "+ hmap.get(keys.get(i)).getPosX()); //Obtiene el identificador de la Posicion en i    
-  
+
+        for (int i = 0; i < nodos.size(); i++) { // se debe borrar
+            System.out.println(nodos.get(keys.get(i)).getPosY()
+                    + " " + nodos.get(keys.get(i)).getPosX()); //Obtiene el identificador de la Posicion en i    
         }
-        
+        return nodos;
     }
 }
