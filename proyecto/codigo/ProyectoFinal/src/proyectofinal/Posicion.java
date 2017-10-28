@@ -8,19 +8,19 @@ package proyectofinal;
  */
 public class Posicion {
 
-    private float posX;
-    private float posY;
+    private double posX;
+    private double posY;
 
-    public Posicion(float y, float x) {
+    public Posicion(double y, double x) {
         posX = x;
         posY = y;
     }
 
-    public float getPosX() {
+    public double getPosX() {
         return posX;
     }
 
-    public float getPosY() {
+    public double getPosY() {
         return posY;
     }
 }

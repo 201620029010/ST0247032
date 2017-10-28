@@ -15,6 +15,13 @@ public class Main {
         Reader rd = new Reader();
         HashMap nodos = rd.read();
         Builder bd = new Builder(nodos.size());
-        bd.build(nodos);
+        double matrix[][] = bd.build(nodos, rd);
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println("");
+        }
     }
 }

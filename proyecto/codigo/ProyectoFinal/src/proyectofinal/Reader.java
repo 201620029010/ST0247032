@@ -17,6 +17,8 @@ import java.util.Map;
  */
 public class Reader {
 
+    private ArrayList<Integer> keys = new ArrayList<Integer>();
+
     /**
      * Metodo que lee la entrada
      *
@@ -30,10 +32,9 @@ public class Reader {
         br = new BufferedReader(fr);
         String str = "";
 
-        ArrayList<Integer> keys = new ArrayList<Integer>();
         HashMap<Integer, Posicion> nodos = new HashMap<Integer, Posicion>();
         int id = 0;
-        float posY = 0, posX = 0;
+        double posY = 0, posX = 0;
 
         while ((str = br.readLine()) != null) {
 
@@ -46,11 +47,11 @@ public class Reader {
                 cont++;
             }
             if (cont == 1) {
-                posY = Float.parseFloat(token.nextToken());
+                posY = Double.parseDouble(token.nextToken());
                 cont++;
             }
             if (cont == 2) {
-                posX = Float.parseFloat(token.nextToken());
+                posX = Double.parseDouble(token.nextToken());
             }
 
             Posicion latLon = new Posicion(posY, posX);
@@ -65,4 +66,9 @@ public class Reader {
         }
         return nodos;
     }
+
+    public ArrayList<Integer> getKeys() {
+        return keys;
+    }
+
 }
