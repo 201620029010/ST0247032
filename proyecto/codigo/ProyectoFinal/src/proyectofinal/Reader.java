@@ -10,17 +10,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Clase que se encarga de la lectura de los archivos o entradas
  *
- * @author Yeshúa
+ * @author Mateo Marulanda Cifuentes
+ * @author Yashua Alexander Narvaez
  */
 public class Reader {
-    
+
     /**
+     * Metodo que lee la entrada
+     *
      * @return retorna un hash map con los nodos y las coordenadas
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
-    public static HashMap read() throws FileNotFoundException, IOException{
+    public HashMap read() throws FileNotFoundException, IOException {
         BufferedReader br = null;
         FileReader fr = new FileReader("medellin_colombia-grande.txt");
         br = new BufferedReader(fr);
@@ -33,7 +37,7 @@ public class Reader {
 
         while ((str = br.readLine()) != null) {
 
-            //Capturo cada dato en una variable
+            //Capturamos cada dato en una variable
             StringTokenizer token = new StringTokenizer(str, " ");
             int cont = 0;
 
