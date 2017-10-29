@@ -16,10 +16,11 @@ public class Main {
         HashMap nodos = rd.read();
         Builder bd = new Builder(nodos.size());
         double matrix[][] = bd.build(nodos, rd);
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                System.out.print(matrix[i][j] + " ");
+        int rmatrix[][] = new int [matrix.length][matrix.length];
+        rmatrix = bd.rebuild(matrix);
+        for (int i = 0; i < rmatrix.length; i++) {
+            for (int j = 0; j < rmatrix.length; j++) {
+                System.out.print(rmatrix[i][j] + " ");
             }
             System.out.println("");
         }
