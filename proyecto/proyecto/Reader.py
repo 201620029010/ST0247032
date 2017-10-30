@@ -22,30 +22,32 @@ def tam (n):
 
 
 def build (nodos):
-    
-    
-
+    aux = [nodos]
   
-    for l in nodos:
-        i = 0
-        s = 0
-        y1 = float(nodos[l][0])
-        x1 = float(nodos[l][1])
+    for i in range (0,len(keys)):
+        print(len(keys))
+        print(nodos[keys[i]][0])
         
-        for j  in  nodos:
+        
+        y1 = float(keys[i][0])
+        x1 = float(keys[i][1])
+        
+        for j  in  range(0,len(keys)):
             
-            y2 = float(nodos[j][0])
-            x2 = float(nodos[j][1])
+           # print(len(nodos), len(matriz))    
+            y2 = float(nodos[keys[j]][0])
+            x2 = float(nodos[keys[j]][1])
             puntos = haversine(x1,y1,x2,y2)
             puntos = puntos * 1000
-            print(puntos)
-           # matriz [int(l)][int(j)] = puntos
-            s + 1
+            
+          
+            matriz [0][j] = puntos
+            
             
             
                
             
-        i + 1  
+        
         return matriz
     
             
@@ -69,8 +71,11 @@ def read():
 
 if __name__ == "__main__": 
    nodos = read()
-   matriz = [[]*len(nodos)] * len(nodos)
+   matriz = [[None] * len(nodos) for i in range(len(nodos))]
+   
+     
    build(nodos)
+   print(matriz)
    
    
    
