@@ -16,7 +16,7 @@ public class Main {
         HashMap nodos = rd.read();
         Builder bd = new Builder(nodos.size());
         double matrix[][] = bd.build(nodos, rd);
-        int rmatrix[][] = new int [matrix.length][matrix.length];
+        int rmatrix[][] = new int[matrix.length][matrix.length];
         rmatrix = bd.rebuild(matrix);
         for (int i = 0; i < rmatrix.length; i++) {
             for (int j = 0; j < rmatrix.length; j++) {
@@ -24,8 +24,9 @@ public class Main {
             }
             System.out.println("");
         }
-       SalesMan sm = new SalesMan();
-       System.out.println(sm.minCost(rmatrix));
-        
+        SalesMan sm = new SalesMan();
+        System.out.println("funciona");
+        System.out.println(sm.minCost(rmatrix));
+
     }
 }

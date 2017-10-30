@@ -22,7 +22,7 @@ public class Builder {
      *
      * @param x longitud de la matriz que se crea
      */
-    public Builder(int x) {
+    public Builder(int x) { 
         matrix = new double[x][x];
     }
 
@@ -38,7 +38,7 @@ public class Builder {
         ArrayList<Integer> keys = rd.getKeys();
         int cont = 0;
 
-            for (int i = 0; i < nodos.size(); i++) {
+            for (int i = 0; i < nodos.size(); i++) {        
                 x1 = nodos.get(keys.get(i)).getPosX();
                 y1 = nodos.get(keys.get(i)).getPosY();
                 for (int j = i + 1; j < nodos.size(); j++) {
@@ -50,7 +50,7 @@ public class Builder {
                     /*double x = Math.pow((x2 - x1), 2);
                      double y = Math.pow((y2-y1),2);
                      double distancia = Math.sqrt(x+y);*/
-                    matrix[i][j] = puntos;
+                    matrix[i][j] = puntos;  
                   
                     matrix[j][i] = puntos;
                 }
