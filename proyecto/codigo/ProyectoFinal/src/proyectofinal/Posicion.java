@@ -1,29 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectofinal;
-
 
 /**
  * Clase Pareja que almacena la longitud y latitud del nodo
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ *
+ * @author Mateo Marulanda Cifuentes
+ * @author Yashua Alexander Narvaez
  */
-public class Posicion
-{
-    private float posX;
-    private float posY;
-    public Posicion(float y,float x) {posX = x;  posY = y;}
+public class Posicion {
 
-    public float getPosX() {
+    private double posX;
+    private double posY;
+
+    public Posicion(double y, double x) {
+        posX = x;
+        posY = y;
+    }
+
+    public double getPosX() {
         return posX;
     }
 
-    public float getPosY() {
+    public double getPosY() {
         return posY;
+        
     }
 }
-
