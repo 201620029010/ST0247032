@@ -22,5 +22,6 @@ public class Posicion {
 
     public double getPosY() {
         return posY;
+        
     }
 }

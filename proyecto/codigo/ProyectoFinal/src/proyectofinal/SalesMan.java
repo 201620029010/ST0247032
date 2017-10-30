@@ -1,13 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectofinal;
 
 import java.util.*;
 
-
+/**
+ * Date 11/17/2015
+ * @author Tushar Roy
+ *
+ * Help Karp method of finding tour of traveling salesman.
+ *
+ * Time complexity - O(2^n * n^2)
+ * Space complexity - O(2^n)
+ *
+ * https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm
+ */
 public class SalesMan {
 
     private static int INFINITY = 100000000;
@@ -100,11 +105,31 @@ public class SalesMan {
         }
 
         parent.put(Index.createIndex(0, set), prevVertex);
-        
+        printTour(parent, distance.length);
+        System.out.println(distance.length);
         return min;
     }
 
-   
+    private void printTour(Map<Index, Integer> parent, int totalVertices) {
+        Set<Integer> set = new HashSet<>();
+        for(int i=0; i < totalVertices; i++) {
+            set.add(i);
+        }
+        Integer start = 0;
+        Deque<Integer> stack = new LinkedList<>();
+        while(true) {
+            stack.push(start);
+            set.remove(start);
+            start = parent.get(Index.createIndex(start, set));
+            if(start == null) {
+                break;
+            }
+        }
+        StringJoiner joiner = new StringJoiner("->");
+        stack.forEach(v -> joiner.add(String.valueOf(v)));
+        System.out.println("\nTSP tour");
+        System.out.println(joiner.toString());
+    }
 
     private int getCost(Set<Integer> set, int prevVertex, Map<Index, Integer> minCostDP) {
         set.remove(prevVertex);
@@ -116,7 +141,6 @@ public class SalesMan {
 
     private List<Set<Integer>> generateCombination(int n) {
         int input[] = new int[n];
-        
         for(int i = 0; i < input.length; i++) {
             input[i] = i+1;
         }

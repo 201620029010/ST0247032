@@ -53,16 +53,10 @@ public class Reader {
             if (cont == 2) {
                 posX = Double.parseDouble(token.nextToken());
             }
-
             Posicion latLon = new Posicion(posY, posX);
 
             keys.add(id);
             nodos.put(id, latLon);
-        }
-
-        for (int i = 0; i < nodos.size(); i++) { // se debe borrar
-            System.out.println(nodos.get(keys.get(i)).getPosY()
-                    + " " + nodos.get(keys.get(i)).getPosX()); //Obtiene el identificador de la Posicion en i    
         }
         return nodos;
     }
