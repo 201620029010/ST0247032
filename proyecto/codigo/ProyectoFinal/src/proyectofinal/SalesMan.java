@@ -126,7 +126,7 @@ public class SalesMan {
                 break;
             }
         }
-        StringJoiner joiner = new StringJoiner("->");
+        StringJoiner joiner = new StringJoiner("-");
         stack.forEach(v -> joiner.add(String.valueOf(v)));
         System.out.print("Ruta: ");
         return (joiner.toString());

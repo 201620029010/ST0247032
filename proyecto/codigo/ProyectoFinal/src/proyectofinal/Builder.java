@@ -24,17 +24,16 @@ public class Builder {
      *
      * @param x longitud de la matriz que se crea
      */
-    public Builder(int x) { 
+    public Builder(int x) {
         matrix = new double[x][x];
     }
-
 
     public double[][] build(HashMap<Integer, Posicion> nodos) {
         Iterator it = nodos.entrySet().iterator();
         while (it.hasNext()) {
-           
+
             Map.Entry e = (Map.Entry) it.next();
-            
+
             System.out.println(e.getKey() + " " + e.getValue());
         }
         return matrix;
@@ -52,28 +51,30 @@ public class Builder {
         ArrayList<Integer> keys = rd.getKeys();
         int cont = 0;
 
-            for (int i = 0; i < nodos.size(); i++) {        
-                x1 = nodos.get(keys.get(i)).getPosX();
-                y1 = nodos.get(keys.get(i)).getPosY();
-                for (int j = i+1; j < nodos.size(); j++) {
+        for (int i = 0; i < nodos.size(); i++) {
+            x1 = nodos.get(keys.get(i)).getPosX();
+            y1 = nodos.get(keys.get(i)).getPosY();
+            for (int j = i + 1; j < nodos.size(); j++) {
 
-                    x2 = nodos.get(keys.get(j)).getPosX(); //capturo la posicion al inicio de la fila para comparar con todo
-                    y2 = nodos.get(keys.get(j)).getPosY();
-                    double puntos = distance(y1, x1, y2, x2, 'K');
-                    puntos = puntos * 1000;
-                    /*double x = Math.pow((x2 - x1), 2);
-                     double y = Math.pow((y2-y1),2);
-                     double distancia = Math.sqrt(x+y);*/
-                    matrix[i][j] = puntos;  
-                  
-                    matrix[j][i] = puntos;
-                }
+                x2 = nodos.get(keys.get(j)).getPosX(); //capturo la posicion al inicio de la fila para comparar con todo
+                y2 = nodos.get(keys.get(j)).getPosY();
+                double puntos = distance(y1, x1, y2, x2, 'K');
+                puntos = puntos * 1000;
+                /*double x = Math.pow((x2 - x1), 2);
+                 double y = Math.pow((y2-y1),2);
+                 double distancia = Math.sqrt(x+y);*/
+                matrix[i][j] = puntos;
+
+                matrix[j][i] = puntos;
             }
-            cont++;
+        }
+        cont++;
         return matrix;
     }
+
     /**
      * Metodo para redondar los valores de los metros
+     *
      * @param matriz se reconstruye una matriz double a int
      * @return la matriz reconstruida
      */
@@ -84,12 +85,21 @@ public class Builder {
             for (int j = 0; j < matriz.length; j++) {
                 rebuilder = (int) matriz[i][j];
                 newMatriz[i][j] = rebuilder;
-                
+
             }
         }
         return newMatriz;
     }
 
+    public void cordenatesTour(int[] arrayTemp, Reader rd, HashMap<Integer, Posicion> nodos) {
+        ArrayList<Integer> keys = rd.getKeys();
+        for (int i = 0; i < nodos.size(); i++) {
+            System.out.print(nodos.get(keys.get(arrayTemp[i])).getPosX() + " " + nodos.get(keys.get(arrayTemp[i])).getPosY()); 
+            System.out.println("");
+        }
+        System.out.print(nodos.get(keys.get(arrayTemp[0])).getPosX() + " " + nodos.get(keys.get(arrayTemp[0])).getPosY()); //Para repetir el primero porque el arreglo es menor al tamaño del mapa
+        System.out.println("");
+    }
 
     public double haversine(double lat1, double lng1, double lat2, double lng2) {
         int r = 6371; // average radius of the earth in km
@@ -102,7 +112,6 @@ public class Builder {
         double d = r * c;
         return d;
     }
-
 
     private double gps2m(double lat_a, double lng_a, double lat_b, double lng_b) {
         double pk = (double) (180 / 3.14169);
