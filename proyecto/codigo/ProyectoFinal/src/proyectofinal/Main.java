@@ -26,8 +26,8 @@ public class Main {
             System.out.println("");
         }
         SalesMan sm = new SalesMan();
-        System.out.println("funciona");
-        System.out.println(sm.minCost(rmatrix));
+        String str = sm.minCost(rmatrix);
+        System.out.println(str);
 
     }
 }
