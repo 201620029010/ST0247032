@@ -28,8 +28,8 @@ public class Builder {
         matrix = new double[x][x];
     }
 
-<<<<<<< HEAD
-    public int[][] build(HashMap<Integer, Posicion> nodos) {
+
+    public double[][] build(HashMap<Integer, Posicion> nodos) {
         Iterator it = nodos.entrySet().iterator();
         while (it.hasNext()) {
            
@@ -39,7 +39,7 @@ public class Builder {
         }
         return matrix;
     }
-=======
+
     /**
      * Metodo que se encarga de construir la matriz usando la API de Google Maps
      *
@@ -55,7 +55,7 @@ public class Builder {
             for (int i = 0; i < nodos.size(); i++) {        
                 x1 = nodos.get(keys.get(i)).getPosX();
                 y1 = nodos.get(keys.get(i)).getPosY();
-                for (int j = i + 1; j < nodos.size(); j++) {
+                for (int j = i+1; j < nodos.size(); j++) {
 
                     x2 = nodos.get(keys.get(j)).getPosX(); //capturo la posicion al inicio de la fila para comparar con todo
                     y2 = nodos.get(keys.get(j)).getPosY();
@@ -89,7 +89,7 @@ public class Builder {
         }
         return newMatriz;
     }
->>>>>>> e555433e91f7c300dfe61482fe6c22829360142f
+
 
     public double haversine(double lat1, double lng1, double lat2, double lng2) {
         int r = 6371; // average radius of the earth in km
@@ -102,8 +102,7 @@ public class Builder {
         double d = r * c;
         return d;
     }
-<<<<<<< HEAD
-=======
+
 
     private double gps2m(double lat_a, double lng_a, double lat_b, double lng_b) {
         double pk = (double) (180 / 3.14169);
@@ -151,5 +150,5 @@ public class Builder {
     private static final double rad2deg(double rad) {
         return (rad * 180 / Math.PI);
     }
->>>>>>> e555433e91f7c300dfe61482fe6c22829360142f
+
 }
