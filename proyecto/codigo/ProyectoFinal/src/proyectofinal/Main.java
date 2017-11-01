@@ -1,7 +1,9 @@
 package proyectofinal;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+
 
 /**
  * Clase principal o clase main
@@ -12,6 +14,7 @@ import java.util.HashMap;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        ArrayList<Posicion> pathCor = new ArrayList<Posicion>();
         Reader rd = new Reader();
         HashMap nodos = rd.read();
         Builder bd = new Builder(nodos.size());
@@ -38,6 +41,16 @@ public class Main {
         }
         System.out.println("");
         bd.cordenatesTour(arrayTemp, rd, nodos);
+        pathCor = bd.getPathCor();
+        String cadenaUrl = "https://www.google.es/maps/dir/";
+        for (int i = 0; i < pathCor.size(); i++) {
+            cadenaUrl+= pathCor.get(i).getPosY() + ","+pathCor.get(i).getPosX()+"/";
+            
+        }
+        cadenaUrl += "@"+pathCor.get(0).getPosY() + "," +pathCor.get(0).getPosX();
+        System.out.println(cadenaUrl);
+        
+        
 
     }
 }

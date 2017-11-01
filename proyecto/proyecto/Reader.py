@@ -1,9 +1,11 @@
 import csv
 import math
+import networkx as nx   
 
 
 matriz = [[]]
 keys = []
+G = nx.DiGraph()
 
 
 def haversine(lon1, lat1, lon2, lat2):
@@ -20,7 +22,7 @@ def haversine(lon1, lat1, lon2, lat2):
 def tam (n):
     matriz = [[]*n] * n
 
-
+"""
 def build (nodos):
     aux = [nodos]
   
@@ -40,7 +42,7 @@ def build (nodos):
             
     
     return matriz             
-   
+"""   
 
 def read():
     nodos = {}
@@ -62,8 +64,9 @@ if __name__ == "__main__":
    
      
    build(nodos)
-   print(matriz)
    
    
-   
+   G.add_edge((2,3),(2,1), weith = 4)
+   print(G[2,3])
+  
    
