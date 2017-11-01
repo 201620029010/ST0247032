@@ -33,7 +33,7 @@ public class Main {
         System.out.println(str);
 
         str = str.replace("-", "");
-
+        
         int[] arrayTemp = new int[str.length()];
         for (int i = 0; i < str.length(); i++) {
             arrayTemp[i] = Integer.parseInt(str.substring(i, i + 1));

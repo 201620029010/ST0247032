@@ -164,7 +164,7 @@ public class Builder {
     /**
      * <p>
      * This function converts radians to decimal degrees.</p>
-     *
+     * 
      * @param rad - the radian to convert
      * @return the radian converted to decimal degrees
      */
