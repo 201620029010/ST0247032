@@ -20,7 +20,7 @@ public class Reader {
     private ArrayList<Integer> keys = new ArrayList<Integer>();
 
     /**
-     * Metodo que lee la entrada
+     * Metodo que lee la entrada tipo archivo
      *
      * @return retorna un hash map con los nodos y las coordenadas
      * @throws FileNotFoundException
@@ -58,6 +58,50 @@ public class Reader {
             keys.add(id);
             nodos.put(id, latLon);
         }
+        return nodos;
+    }
+
+    /**
+     * Metodo que se encarga de leer las entradas tipo url
+     *
+     * @param link String de la url del mapa
+     * @return Hasmap con las coordenadas
+     */
+    public HashMap readLink(String link) {
+        HashMap<Integer, Posicion> nodos = new HashMap<Integer, Posicion>();
+        String str = link.substring(31, link.length() - 18);
+
+        int id = 0;
+        double posY = 0, posX = 0;
+        StringTokenizer token = new StringTokenizer(str, "/");
+
+        while (token.hasMoreTokens()) {
+            String strTemp = token.nextToken();
+            if (token.hasMoreTokens()) {
+                String[] parts = strTemp.split(",");
+                posY = Double.parseDouble(parts[0]);
+                posX = Double.parseDouble(parts[1]);
+
+                Posicion latLon = new Posicion(posY, posX);
+                keys.add(id);
+                nodos.put(id, latLon);
+                id++;
+            } else {
+                strTemp = strTemp.replace('@', ' ');
+                String[] parts = strTemp.split(",");
+                posY = Double.parseDouble(parts[0]);
+                posX = Double.parseDouble(parts[1]);
+
+                Posicion latLon = new Posicion(posY, posX);
+                keys.add(id);
+                nodos.put(id, latLon);
+                id++;
+            }
+        }
+        Posicion latLon = new Posicion(posY, posX);
+
+        keys.add(id);
+        nodos.put(id, latLon);
         return nodos;
     }
 

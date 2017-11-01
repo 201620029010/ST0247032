@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Star%20Platinum/Desktop/Toda%20la%20mierda/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/Main.java</file>
             <file>file:/C:/Users/Star%20Platinum/Desktop/Toda%20la%20mierda/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/Reader.java</file>
             <file>file:/C:/Users/Star%20Platinum/Desktop/Toda%20la%20mierda/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/Posicion.java</file>
             <file>file:/C:/Users/Star%20Platinum/Desktop/Toda%20la%20mierda/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/Builder.java</file>
+=======
+            <file>file:/C:/Users/Usuario/Desktop/Eafit/Datos%202/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/Builder.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/Eafit/Datos%202/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/Main.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/Eafit/Datos%202/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/Reader.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/Eafit/Datos%202/ST0247032/proyecto/codigo/ProyectoFinal/src/proyectofinal/SalesMan.java</file>
+>>>>>>> ef6f0c0fea0af857458fe8347c207871db71b1de
         </group>
     </open-files>
 </project-private>
