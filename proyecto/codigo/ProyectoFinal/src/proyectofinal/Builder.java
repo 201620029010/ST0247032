@@ -18,7 +18,7 @@ public class Builder {
     private double y1;
     private double x2;
     private double y2;
-    private ArrayList<Posicion> pathCor = new ArrayList <Posicion>();
+    private ArrayList<Posicion> pathCor = new ArrayList<Posicion>();
 
     /**
      * Constructor de la clase Builder
@@ -95,22 +95,19 @@ public class Builder {
     public void cordenatesTour(int[] arrayTemp, Reader rd, HashMap<Integer, Posicion> nodos) {
         ArrayList<Integer> keys = rd.getKeys();
         for (int i = 0; i < nodos.size(); i++) {
-            
-            System.out.print(nodos.get(keys.get(arrayTemp[i])).getPosY() + " " + nodos.get(keys.get(arrayTemp[i])).getPosX()); 
-            System.out.println("");
+
+            //   System.out.print(nodos.get(keys.get(arrayTemp[i])).getPosY() + " " + nodos.get(keys.get(arrayTemp[i])).getPosX()); 
             double y = nodos.get(keys.get(arrayTemp[i])).getPosY();
             double x = nodos.get(keys.get(arrayTemp[i])).getPosX();
-            Posicion yx = new Posicion(y,x);
+            Posicion yx = new Posicion(y, x);
             pathCor.add(yx);
-            
+
         }
-        
-        System.out.print(nodos.get(keys.get(arrayTemp[0])).getPosY() + " " + nodos.get(keys.get(arrayTemp[0])).getPosX()); //Para repetir el primero porque el arreglo es menor al tamaño del mapa
-        System.out.println("");
-        System.out.println("");
-       /* for(Posicion yx: pathCor){ 
-            System.out.println(yx.getPosY() + " " + yx.getPosX());
-        }*/
+
+    //System.out.print(nodos.get(keys.get(arrayTemp[0])).getPosY() + " " + nodos.get(keys.get(arrayTemp[0])).getPosX()); //Para repetir el primero porque el arreglo es menor al tamaño del mapa
+        /* for(Posicion yx: pathCor){ 
+         System.out.println(yx.getPosY() + " " + yx.getPosX());
+         }*/
     }
 
     public double haversine(double lat1, double lng1, double lat2, double lng2) {
@@ -175,7 +172,5 @@ public class Builder {
     public ArrayList<Posicion> getPathCor() {
         return pathCor;
     }
-    
-    
 
 }
