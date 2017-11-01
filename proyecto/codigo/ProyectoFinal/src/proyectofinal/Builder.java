@@ -104,10 +104,21 @@ public class Builder {
 
         }
 
-    //System.out.print(nodos.get(keys.get(arrayTemp[0])).getPosY() + " " + nodos.get(keys.get(arrayTemp[0])).getPosX()); //Para repetir el primero porque el arreglo es menor al tamaño del mapa
+        //System.out.print(nodos.get(keys.get(arrayTemp[0])).getPosY() + " " + nodos.get(keys.get(arrayTemp[0])).getPosX()); //Para repetir el primero porque el arreglo es menor al tamaño del mapa
         /* for(Posicion yx: pathCor){ 
          System.out.println(yx.getPosY() + " " + yx.getPosX());
          }*/
+    }
+
+    public void generarLink(ArrayList<Posicion> pathCor) {
+        String cadenaUrl = "https://www.google.es/maps/dir/";
+        for (int i = 0; i < pathCor.size(); i++) {
+            cadenaUrl += pathCor.get(i).getPosY() + "," + pathCor.get(i).getPosX() + "/";
+
+        }
+        cadenaUrl += "@" + pathCor.get(0).getPosY() + "," + pathCor.get(0).getPosX();
+        System.out.println(cadenaUrl);
+
     }
 
     public double haversine(double lat1, double lng1, double lat2, double lng2) {
@@ -161,7 +172,7 @@ public class Builder {
     /**
      * <p>
      * This function converts radians to decimal degrees.</p>
-     * 
+     *
      * @param rad - the radian to convert
      * @return the radian converted to decimal degrees
      */
