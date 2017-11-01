@@ -54,7 +54,7 @@ public class SalesMan {
         }
     }
 
-    public int minCost(int[][] distance) {
+    public String minCost(int[][] distance) {
 
         //stores intermediate values in map
         Map<Index, Integer> minCostDP = new HashMap<>();
@@ -105,12 +105,13 @@ public class SalesMan {
         }
 
         parent.put(Index.createIndex(0, set), prevVertex);
-        printTour(parent, distance.length);
-        System.out.println(distance.length);
-        return min;
+        
+        System.out.println("Cantidad de nodos: "+distance.length);
+        System.out.println("Distancia total a recorrer: "+(double)min/1000+" KM");
+        return printTour(parent, distance.length);
     }
 
-    private void printTour(Map<Index, Integer> parent, int totalVertices) {
+    private String printTour(Map<Index, Integer> parent, int totalVertices) {
         Set<Integer> set = new HashSet<>();
         for(int i=0; i < totalVertices; i++) {
             set.add(i);
@@ -125,10 +126,10 @@ public class SalesMan {
                 break;
             }
         }
-        StringJoiner joiner = new StringJoiner("->");
+        StringJoiner joiner = new StringJoiner("-");
         stack.forEach(v -> joiner.add(String.valueOf(v)));
-        System.out.println("\nTSP tour");
-        System.out.println(joiner.toString());
+        System.out.print("Ruta: ");
+        return (joiner.toString());
     }
 
     private int getCost(Set<Integer> set, int prevVertex, Map<Index, Integer> minCostDP) {
